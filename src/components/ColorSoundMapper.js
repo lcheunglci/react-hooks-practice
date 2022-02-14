@@ -1,19 +1,21 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 
 function ColorSoundMapper() {
 
     const sound = useRef();
-    const color = useRef();
+    // const color = useRef();
+    const [color, setColor] = useState("#000000");
 
     // prevents the page from reloading.
     const submit = (e) => {
         e.preventDefault();
         const soundValue = sound.current.value;
-        const colorValue = color.current.value;
+        //const colorValue = color.current.value;
 
-        alert(`${soundValue} sounds like ${colorValue}`);
+        alert(`${soundValue} sounds like ${color}`);
         sound.current.value = "";
-        color.current.value = "";
+        //color.current.value = "";
+        setColor("#000000")
     }
 
     return (
@@ -24,8 +26,10 @@ function ColorSoundMapper() {
              type="text"
              placeholder="Sound..." />
             <input
-             ref={color}
-             type="color" />
+             value={color}
+             type="color" 
+             onChange={(e) => setColor(e.target.value)}
+             />
             <button>Add</button>
         </form>
         </>
