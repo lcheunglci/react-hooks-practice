@@ -1,34 +1,31 @@
-import React, {useRef, useState} from "react";
+import React from "react";
+import {useInput} from '../hooks/useInput'
 
 function ColorSoundMapper() {
 
-    const sound = useRef();
-    // const color = useRef();
-    const [color, setColor] = useState("#000000");
+    const [titleProps, resetTitle] = useInput("");
+    const [colorProps, resetColor] = useInput("#000000")
 
+    
     // prevents the page from reloading.
     const submit = (e) => {
         e.preventDefault();
-        const soundValue = sound.current.value;
-        //const colorValue = color.current.value;
-
-        alert(`${soundValue} sounds like ${color}`);
-        sound.current.value = "";
-        //color.current.value = "";
-        setColor("#000000")
+        
+        alert(`${titleProps.value} sounds like ${colorProps.value}`);
+        resetTitle();
+        resetColor();
     }
 
     return (
         <>
         <form onSubmit={submit}>
             <input
-             ref={sound}
+             {...titleProps}
              type="text"
              placeholder="Sound..." />
             <input
-             value={color}
+             {...colorProps}
              type="color" 
-             onChange={(e) => setColor(e.target.value)}
              />
             <button>Add</button>
         </form>
