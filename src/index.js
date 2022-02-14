@@ -1,36 +1,22 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
-import ColorSoundMapper from './components/ColorSoundMapper';
-// import Mood from './components/Mood';
-// import GitUser from './components/GitUser';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import StarRating from './components/StarRating';
-// import Celebrate from './components/Celebrate';
-// import Counter from './components/Counter';
 
+export const TreesContext = createContext();
 
-function App() {
-  // return <StarRating totalStars={10} />
-  // return <Celebrate />
-  //return <GitUser/>
-  //return <Counter/>
-  //return <Mood />
-
-  return (
-    <>
-    <h1>Hello world!</h1>
-    <ColorSoundMapper />
-    </>
-  )
-}
-
+const trees = [
+  {id: "1", type: "Maple"},
+  {id: "2", type: "Oak"},
+  {id: "3", type: "Family"},
+  {id: "4", type: "Component"},
+]
 
 ReactDOM.render(
-  <React.StrictMode>
+  <TreesContext.Provider value={{trees}}>
     <App />
-  </React.StrictMode>,
+  </TreesContext.Provider>,
   document.getElementById('root')
 );
 
