@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, {useContext} from 'react';
+import React from 'react';
 // import ColorSoundMapper from './components/ColorSoundMapper';
 // import Mood from './components/Mood';
 // import GitUser from './components/GitUser';
@@ -8,11 +8,11 @@ import React, {useContext} from 'react';
 // import Celebrate from './components/Celebrate';
 // import Counter from './components/Counter';
 
-import {TreesContext} from "./"
+import {useTrees} from "./"
 
 function App() {
 
-  const {trees} = useContext(TreesContext);
+  const {trees} = useTrees();
 
   return (
         // return <StarRating totalStars={10} />
