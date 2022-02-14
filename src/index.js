@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Mood from './components/Mood';
+import ColorSoundMapper from './components/ColorSoundMapper';
+// import Mood from './components/Mood';
 // import GitUser from './components/GitUser';
 import './index.css';
 // import App from './App';
@@ -15,10 +16,12 @@ function App() {
   // return <Celebrate />
   //return <GitUser/>
   //return <Counter/>
+  //return <Mood />
+
   return (
     <>
     <h1>Hello world!</h1>
-    <Mood />
+    <ColorSoundMapper />
     </>
   )
 }
